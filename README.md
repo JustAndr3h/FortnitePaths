@@ -8,7 +8,7 @@ A program made in C# that allow you to extract a specific game path (json data, 
 
 ## Build
 
-1. Download the source or clone it with [Git](https://git-scm.com/download/win)
+1. Download the source or clone it with [Git](https://git-scm.com/download/win) and you need [CUE4Parse](https://github.com/FabianFG/CUE4Parse) saved in the solution directory.
 
 ```
 git clone https://github.com/djlorenzouasset/FortnitePaths
