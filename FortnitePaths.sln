@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortnitePaths", "FortnitePaths\FortnitePaths.csproj", "{3E7F13B9-2033-4577-815B-D5F94F39D591}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CUE4Parse", "FortnitePaths\CUE4Parse\CUE4Parse\CUE4Parse.csproj", "{0A8131A3-D0DC-4906-8C77-A47085A06722}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CUE4Parse-Conversion", "FortnitePaths\CUE4Parse\CUE4Parse-Conversion\CUE4Parse-Conversion.csproj", "{A6F644C5-20EC-4343-A859-FB615B12548C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E7F13B9-2033-4577-815B-D5F94F39D591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7F13B9-2033-4577-815B-D5F94F39D591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7F13B9-2033-4577-815B-D5F94F39D591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7F13B9-2033-4577-815B-D5F94F39D591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A8131A3-D0DC-4906-8C77-A47085A06722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A8131A3-D0DC-4906-8C77-A47085A06722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A8131A3-D0DC-4906-8C77-A47085A06722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A8131A3-D0DC-4906-8C77-A47085A06722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6F644C5-20EC-4343-A859-FB615B12548C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6F644C5-20EC-4343-A859-FB615B12548C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6F644C5-20EC-4343-A859-FB615B12548C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6F644C5-20EC-4343-A859-FB615B12548C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24F8E5B7-1588-42D5-A833-CC2A5BA4E3E1}
+	EndGlobalSection
+EndGlobal
