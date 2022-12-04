@@ -39,7 +39,8 @@ public class Program
                             "it",
                             "es",
                             "fr",
-                            "de"
+                            "de",
+                            "ar"
                         }
                     )
             );
