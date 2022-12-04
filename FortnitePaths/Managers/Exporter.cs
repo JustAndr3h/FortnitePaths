@@ -11,12 +11,14 @@ using CUE4Parse.UE4.Assets.Exports.Texture;
 using CUE4Parse.UE4.Assets.Exports.Sound;
 using CUE4Parse_Conversion.Sounds;
 using CUE4Parse_Conversion.Textures;
+using CUE4Parse.UE4.Objects.UObject;
 
 namespace FortnitePaths.Managers;
 
 public class Exporter
 {
     private DefaultFileProvider provider;
+    private string[] types = { "AthenaBackpackItemDefinition", "AthenaCharacterItemDefinition", "AthenaDanceItemDefinition", "AthenaItemWrapDefinition", "AthenaLoadingScreenItemDefinition", "AthenaPickaxeItemDefinition", "AthenaSprayItemDefinition", "FortVariantTokenType" };
 
     public void InitializeProvider(string mappingsPath, string filesPath, string language)
     {
@@ -76,16 +78,52 @@ public class Exporter
             var exports = provider.LoadObjectExports(extractionPath.Replace(".uasset", ""));
             var t = Path.Combine(DirectoryManager.dataDir, extractionPath.Split("/").Last().Replace(".uasset", ".json"));
             File.WriteAllText(t, JsonConvert.SerializeObject(exports, Formatting.Indented));
+
             Console.WriteLine($"\nSaved export data as {t}");
+
             foreach (var x in exports)
             {
                 CheckExport(x);
+                CheckType(x, extractionPath.Replace(".uasset", ""));
                 break;
             }
         }
         catch (Exception e)
         {
             Console.WriteLine($"\nNo file found for {extractionPath}");
+        }
+    }
+
+    public void CheckType(UObject file, string path) // some parts from intheshade solitude
+    {
+        if (types.Contains(file.ExportType) && provider.TryLoadObject(path, out var c))
+        {
+            if (c.TryGetValue(out UTexture2D texture, "LargePreviewImage"))
+            {
+                SaveTexture(texture);
+            }
+
+            if (c.TryGetValue(out UTexture2D ndTexture, "SmallPreviewImage"))
+            {
+                SaveTexture(ndTexture);
+            }
+
+            if (c.TryGetValue(out FPackageIndex hero, "HeroDefinition") &&
+                hero.TryLoad(out var herofn) &&
+                herofn is not null &&
+                herofn.TryGetValue(out UTexture2D heroDefIcon, "LargePreviewImage"))
+            {
+                SaveTexture(heroDefIcon);
+            }
+
+            if (file.ExportType == "AthenaPickaxeItemDefinition" &&
+                c.TryGetValue(out FPackageIndex pickaxe, "WeaponDefinition") &&
+                pickaxe.TryLoad(out var pickaxeWid) &&
+                pickaxeWid is not null &&
+                pickaxeWid.TryGetValue(out UTexture2D pickaxeIcon, "LargePreviewImage"))
+            {
+                SaveTexture(pickaxeIcon);
+            }
         }
     }
 
@@ -122,6 +160,7 @@ public class Exporter
         catch (Exception e)
         {
 #if DEBUG
+            if (e.ToString().StartsWith("System.IO.IOException:")) return false; // let's remove this useless exception
             Console.WriteLine(e);
 #endif
             Console.WriteLine($"\nError while saving texture for {texture.Name}");
