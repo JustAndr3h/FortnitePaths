@@ -43,6 +43,9 @@ public class Exporter
             case "de":
                 provider.LoadLocalization(ELanguage.German);
                 break;
+            case "ar":
+                provider.LoadLocalization(ELanguage.Arabic);
+                break;
             default:
                 provider.LoadLocalization(ELanguage.English);
                 break;
