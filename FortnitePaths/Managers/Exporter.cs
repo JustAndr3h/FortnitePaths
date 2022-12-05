@@ -23,7 +23,7 @@ public class Exporter
     public void InitializeProvider(string mappingsPath, string filesPath, string language)
     {
         Console.Write("Initializing provider.. ");
-        provider = new(filesPath, SearchOption.AllDirectories, true, new VersionContainer(EGame.GAME_UE5_0));
+        provider = new(filesPath, SearchOption.AllDirectories, true, new VersionContainer(EGame.GAME_UE5_2)); // now fortnite use UnrealEngine 2 version (536870912)
         provider.MappingsContainer = new FileUsmapTypeMappingsProvider(mappingsPath);
         provider.Initialize();
         LoadAesKeys();
