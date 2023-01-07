@@ -6,8 +6,8 @@ namespace FortnitePaths.Rest;
 
 public static class Requests
 {
-    private const string _mappingsEndpoint = "https://fortnitecentral.gmatrixgames.ga/api/v1/mappings";
-    private const string _aesEndpoint = "https://fortnitecentral.gmatrixgames.ga/api/v1/aes";
+    private const string _mappingsEndpoint = "https://fortnitecentral.genxgames.gg/api/v1/mappings";
+    private const string _aesEndpoint = "https://fortnitecentral.genxgames.gg/api/v1/aes";
 
     public static MappingsResponse[] TryGetMappings()
     {
